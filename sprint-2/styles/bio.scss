@@ -1,20 +1,14 @@
 @use './partials/variables' as *;
 @use './partials/global' as *;
 @use './partials/mixins' as *;
+@use './partials/fonts' as *;
 
 html,
 body,
 main {
 	margin: 0;
 	padding: 0;
-}
-
-.body {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-size: 16px;
-	font-family: 'Avenir', Tahoma, sans-serif;
+	font-family: 'Avenir Next', Tahoma, sans-serif;
 }
 
 #page1 .link1 {
@@ -550,8 +544,11 @@ main {
 }
 
 .comment {
+	
 	&__text-wrapper {
+		padding: 10px;
 	}
+
 	@media (min-width: 768px) {
 		width: 60vw;
 		height: 10vw;

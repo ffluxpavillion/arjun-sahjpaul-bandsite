@@ -8,14 +8,7 @@ body,
 main {
 	margin: 0;
 	padding: 0;
-}
-
-.body {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-size: 16px;
-	font-family: 'Avenir', Tahoma, sans-serif;
+	font-family: 'Avenir Next', Tahoma, sans-serif;
 }
 
 #page2 .link2 {
@@ -124,7 +117,7 @@ main {
 	}
 
 	&__subheader {
-		font-style: $fontRegular;
+		font-family: "Avenir Next";
 		color: $light-text;
 		margin: 0rem 0rem 1.5rem 1rem;
 
@@ -147,7 +140,7 @@ main {
 	}
 
 	&__header {
-		font-style: $fontRegular;
+		font-family: "Avenir Next";
 		color: $light-text;
 		margin: 0rem 0rem 1.5rem 1rem;
 		width: 300px;
@@ -316,15 +309,13 @@ main {
 	flex-direction: column;
 }
 
-.shows-card {
-}
-
 .shows__section {
 	padding: 0 1rem 0 1rem;
 }
+
 .shows {
 	&__header {
-		font-style: $fontBold;
+		font-style: Avenir Next Bold;
 	}
 	&__date {
 		color: $secondary-text;

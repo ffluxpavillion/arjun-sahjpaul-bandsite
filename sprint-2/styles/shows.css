@@ -1,22 +1,19 @@
 /*======================= Colors ======================= */
 /*======================= Media Breakpoints ======================= */
 @font-face {
-  font-family: "Avenir Next Regular";
-  src: url(/assets/Font/AvenirNextLTPro-Regular.otf) format("otf");
+  font-family: "Avenir Next";
+  src: url(../assets/Font/AvenirNextLTPro-Regular.otf) format("opentype");
   font-weight: 400;
-  font-style: normal;
 }
 @font-face {
   font-family: "Avenir Next Demi";
-  src: url(/assets/Font/AvenirNextLTPro-Demi.otf) format("otf");
+  src: url(../assets/Font/AvenirNextLTPro-Demi.otf) format("opentype");
   font-weight: 600;
-  font-style: normal;
 }
 @font-face {
   font-family: "Avenir Next Bold";
-  src: url(/assets/Font/AvenirNextLTPro-Bold.otf) format("opentype");
+  src: url(../assets/Font/AvenirNextLTPro-Bold.otf) format("opentype");
   font-weight: 700;
-  font-style: normal;
   font-size: larger;
 }
 html,
@@ -24,14 +21,7 @@ body,
 main {
   margin: 0;
   padding: 0;
-}
-
-.body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 16px;
-  font-family: "Avenir", Tahoma, sans-serif;
+  font-family: "Avenir Next", Tahoma, sans-serif;
 }
 
 #page2 .link2 {
@@ -142,7 +132,7 @@ main {
   }
 }
 .hero__subheader {
-  font-style: "Avenir Next Regular";
+  font-family: "Avenir Next";
   color: #fff;
   margin: 0rem 0rem 1.5rem 1rem;
 }
@@ -170,7 +160,7 @@ main {
   }
 }
 .hero__header {
-  font-style: "Avenir Next Regular";
+  font-family: "Avenir Next";
   color: #fff;
   margin: 0rem 0rem 1.5rem 1rem;
   width: 300px;
@@ -351,7 +341,7 @@ main {
 }
 
 .shows__header {
-  font-style: "Avenir Next Bold";
+  font-style: Avenir Next Bold;
 }
 .shows__date {
   color: #afafaf;
