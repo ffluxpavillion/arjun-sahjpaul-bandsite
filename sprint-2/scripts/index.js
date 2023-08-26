@@ -30,17 +30,36 @@ function createCommentCard(comment) {
 	const commentCard = document.createElement('div');
 	commentCard.classList.add('comment__card');
 
-	commentCard.innerHTML = `
-    <div class="comment__text-wrapper">
-      <div class="comment__name">
-        <div class="avatar__div"></div>
-        <p class="comment__name-txt">${comment.userName}</p>
-        <p class="comment__date">${comment.commentDate}</p>
-      </div>
-      <p class="comment__body-txt">${comment.commentText}</p>
-    </div>
-  `;
+	const commentTextWrapper = document.createElement('div');
+	commentTextWrapper.classList.add('comment__text--wrapper');
 
+	const commentName = document.createElement('div');
+	commentName.classList.add('comment__name');
+
+	const avatarDiv = document.createElement('div');
+	avatarDiv.classList.add('avatar__div');
+
+	const commentNameTxt = document.createElement('p');
+	commentNameTxt.classList.add('comment__name-txt');
+	commentNameTxt.textContent = comment.userName;
+
+	const commentDate = document.createElement('p');
+	commentDate.classList.add('comment__date');
+	commentDate.textContent = comment.commentDate;
+
+	const commentBodyTxt = document.createElement('p');
+	commentBodyTxt.classList.add('comment__body-txt');
+	commentBodyTxt.textContent = comment.commentText;
+
+	commentName.appendChild(avatarDiv);
+	commentName.appendChild(commentNameTxt);
+	commentName.appendChild(commentDate);
+
+	commentTextWrapper.appendChild(commentName);
+	commentTextWrapper.appendChild(commentBodyTxt);
+
+	commentCard.appendChild(commentTextWrapper);
+	
 	return commentCard;
 }
 
