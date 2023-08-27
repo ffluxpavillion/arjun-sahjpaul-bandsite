@@ -1,100 +1,106 @@
 /* eslint-disable no-undef */
 /* eslint-disable func-style */
 /* eslint-disable indent */
+
 let authKey;
 
-//<-- Retrieves API Authentication Key -->
+// <-- Retrieves API Authentication Key -->
 const retrieveAuthKey = () => {
-  return axios.get('https://project-1-api.herokuapp.com/register')
-    .then(response => {
-      authKey = response.data.api_key;
-    });
+	return axios
+		.get('https://project-1-api.herokuapp.com/register')
+		.then((response) => {
+			authKey = response.data.api_key;
+		});
 };
 
-//<-- Retrieves Shows from API -->
+// <-- Retrieves Shows from API -->
 const getShows = () => {
-  return axios.get(`https://project-1-api.herokuapp.com/showdates?api_key=${authKey}`)
-    .then(response => {
-      renderComments(response.data);
-    });
+	return axios
+		.get(`https://project-1-api.herokuapp.com/showdates?api_key=${authKey}`)
+		.then((response) => {
+			renderShows(response.data);
+		});
 };
 
- 
-//<-- Function To Create Show Cards -->
-function createShowTable(showsArray) {
-	const cardContainer = document.getElementById('showsCardContainer');
-	const card = document.createElement('shows-card');
-	card.classList.add('shows-card');
-	cardContainer.appendChild(card);
+// Function to format the date
+const formattedDate = (timestamp) =>
+	new Date(Number(timestamp))
+		.toLocaleDateString('en-US', {
+			weekday: 'short',
+			month: 'short',
+			day: '2-digit',
+			year: 'numeric',
+		})
+		.replace(/,/g, '');
 
-	showsArray.forEach((show) => {
-		const showCard = document.createElement('tr');
-		card.appendChild(showCard);
+// <-- Building Show List -->
+const renderShows = (shows) => {
+	const showsWrapper = document.querySelector('.shows__wrapper');
+	for (let i = 0; i < shows.length; i++) {
+		const show = shows[i];
 
-		// Display Date Header + Value -->
-		const dateHeader = document.createElement('td');
+		// Create Post Div & Append To showsWrapper
+		let post = document.createElement('div');
+		post.classList.add('shows__card');
+		showsWrapper.appendChild(post);
+
+		//<--  Creates Elements & Inplements Array Data, Then Appends to Post  -->
+		//<--  Display Date Header + Value  -->
+		let dateHeader = document.createElement('p');
 		dateHeader.classList.add('shows__date');
-		dateHeader.textContent = 'Date';
-		showCard.appendChild(dateHeader);
+		dateHeader.textContent = 'DATE';
+		post.appendChild(dateHeader);
 
-		const dateText = document.createElement('td');
+		let dateText = document.createElement('p');
 		dateText.classList.add('shows__date-text');
-		dateText.textContent = show.date;
-		showCard.appendChild(dateText);
+		dateText.textContent = formattedDate(show.date); // Use the formattedDate function
+		post.appendChild(dateText);
 
-		// Display Venue Header + Value -->
-		const venueHeader = document.createElement('td');
+		//<--  Display Venue Header + Value  -->
+		let venueHeader = document.createElement('p');
 		venueHeader.classList.add('shows__venue');
-		venueHeader.textContent = 'Venue';
-		showCard.appendChild(venueHeader);
+		venueHeader.textContent = 'VENUE';
+		post.appendChild(venueHeader);
 
-		const venueText = document.createElement('td');
+		let venueText = document.createElement('p');
 		venueText.classList.add('shows__venue-text');
-		venueText.textContent = show.venue;
-		showCard.appendChild(venueText);
+		venueText.textContent = show.place;
+		post.appendChild(venueText);
 
-		// Display Location Header + Value -->
-		const locationHeader = document.createElement('td');
+		//<--  Display Location Header + Value  -->
+		let locationHeader = document.createElement('p');
 		locationHeader.classList.add('shows__location');
-		locationHeader.textContent = 'Location';
-		showCard.appendChild(locationHeader);
+		locationHeader.textContent = 'LOCATION';
+		post.appendChild(locationHeader);
 
-		const locationText = document.createElement('td');
+		let locationText = document.createElement('p');
 		locationText.classList.add('shows__location-text');
-
 		locationText.textContent = show.location;
-		showCard.appendChild(locationText);
+		post.appendChild(locationText);
 
-		// Display the "Buy Tickets" button -->
-		const buttonCell = document.createElement('buyTicketsCell');
-		const buyTicketsButton = document.createElement('button');
+		//<--  Display the "Buy Tickets" Button  -->
+		let buttonCell = document.createElement('div');
+		let button = document.createElement('button');
 		buttonCell.classList.add('shows-button-cell');
-		buyTicketsButton.classList.add('shows-button');
+		button.classList.add('shows__button');
+		button.textContent = 'BUY TICKETS';
+		post.appendChild(button);
 
-		// Adds Text to Button
-		buyTicketsButton.textContent = 'Buy Tickets';
-
-		buttonCell.appendChild(buyTicketsButton);
-		showCard.appendChild(buttonCell);
-
-		// Adds Event Listener @ Each Card -->
-		showCard.addEventListener('click', () => {
-			const allRows = document.querySelectorAll('tr');
-			allRows.forEach((r) => r.classList.remove('selected'));
-			showCard.classList.add('selected');
+		// Adds Event Listeners to Each Card -->
+		post.addEventListener('click', () => {
+			const showList = document.querySelectorAll('.shows__card');
+			showList.forEach((show) => show.classList.remove('selected'));
+			post.classList.add('selected');
 		});
 
-		// Adds Hover State  -->
-		showCard.addEventListener('mouseover', () => {
-			showCard.classList.add('hovered');
+		// Adds Hover State -->
+		post.addEventListener('mouseover', () => {
+			post.classList.add('hovered');
 		});
-		showCard.addEventListener('mouseout', () => {
-			showCard.classList.remove('hovered');
+		post.addEventListener('mouseout', () => {
+			post.classList.remove('hovered');
 		});
-	});
-}
-
-// Calls The Function with (showsArray)
-createShowTable(showsArray);
+	}
+};
 
 retrieveAuthKey().then(getShows);

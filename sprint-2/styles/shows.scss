@@ -304,7 +304,7 @@ main {
 }
 
 /* Style for the table container */
-.showsCardContainer {
+.shows__wrapper {
 	display: flex;
 	flex-direction: column;
 }
@@ -476,11 +476,11 @@ button {
 }
 
 /* Style for the selected row */
-tr.selected {
+.shows__card.selected {
 	background-color: #f1f1f1;
 }
 
 /* Style for the hovered row */
-tr.hovered {
+.shows__card.hovered {
 	background-color: #e2e2e2;
 }
