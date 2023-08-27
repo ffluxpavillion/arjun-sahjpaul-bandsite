@@ -1,40 +1,25 @@
 /* eslint-disable no-undef */
 /* eslint-disable func-style */
 /* eslint-disable indent */
+let authKey;
 
-const showsArray = [
-	{
-		date: 'Mon Sept 06 2021',
-		venue: 'Ronald Lane ',
-		location: 'San Francisco, CA',
-	},
-	{
-		date: 'Tue Sept 21 2021 ',
-		venue: 'Pier 3 East ',
-		location: 'San Francisco, CA ',
-	},
-	{
-		date: 'Fri Oct 15 2021 ',
-		venue: 'View Lounge',
-		location: 'San Francisco, CA',
-	},
-	{
-		date: 'Sat Nov 06 2021',
-		venue: 'Hyatt Agency',
-		location: 'San Francisco, CA',
-	},
-	{
-		date: 'Fri Nov 26 2021',
-		venue: 'Moscow Center',
-		location: 'San Francisco, CA',
-	},
-	{
-		date: 'Wed Dec 15 2021 ',
-		venue: 'Press Club',
-		location: 'San Francisco, CA',
-	},
-];
+//<-- Retrieves API Authentication Key -->
+const retrieveAuthKey = () => {
+  return axios.get('https://project-1-api.herokuapp.com/register')
+    .then(response => {
+      authKey = response.data.api_key;
+    });
+};
 
+//<-- Retrieves Shows from API -->
+const getShows = () => {
+  return axios.get(`https://project-1-api.herokuapp.com/showdates?api_key=${authKey}`)
+    .then(response => {
+      renderComments(response.data);
+    });
+};
+
+ 
 //<-- Function To Create Show Cards -->
 function createShowTable(showsArray) {
 	const cardContainer = document.getElementById('showsCardContainer');
@@ -111,3 +96,5 @@ function createShowTable(showsArray) {
 
 // Calls The Function with (showsArray)
 createShowTable(showsArray);
+
+retrieveAuthKey().then(getShows);
