@@ -580,15 +580,28 @@ main {
 }
 
 .avatar__div {
-	background-color: $secondary-text;
-	height: 2.25rem;
-	width: 2.25rem;
-	border-radius: 50%;
-	margin: 1rem 1rem 0 0;
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+  margin: 1rem 1rem 0 0;
 
-	@media screen and (min-width: $tablet) {
-		height: 3rem;
-		width: 3rem;
-		margin-top: 1.5rem;
-	}
+  > img { 
+    height: 2.25rem;
+    width: 2.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 20% 50%;
+    margin: 1rem 0.75rem 0 0;
+  }
+
+  @media screen and (min-width: $tablet) {
+    height: 3rem;
+    width: 3rem;
+    margin-top: 1.5rem;
+
+    > img {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
 }

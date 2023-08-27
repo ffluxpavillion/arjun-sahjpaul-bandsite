@@ -36,6 +36,13 @@ function createCommentCard(comment) {
   const avatarDiv = document.createElement('div');
   avatarDiv.classList.add('avatar__div');
 
+	const userAvatar = new Image();
+	userAvatar.classList.add('avatar__div');
+
+	userAvatar.setAttribute('src', '../assets/Images/avatar-placeholder-3.jpg');
+	avatarDiv.appendChild(userAvatar);
+	
+
   const commentNameTxt = document.createElement('p');
   commentNameTxt.classList.add('comment__name-txt');
   commentNameTxt.textContent = comment.name;
@@ -90,16 +97,22 @@ function newComment() {
     .then(response => {
       //<-- Display New Comment -->
       commentsArray.unshift(response.data);
-			displayComments(response.data);
-      
+      displayComments(response.data);
+
       //<-- Clearing Field Input -->
       document.getElementById('userName').value = '';
       document.getElementById('commentText').value = '';
+
+      //<-- Update Avatar Image for New Comment -->
+      const newCommentCard = document.querySelector('.parent__card > .comment__card');
+      const newCommentAvatar = newCommentCard.querySelector('.avatar__div > img');
+      newCommentAvatar.setAttribute('src', './assets/images/Mohan-muruge.jpg');
     })
     .catch(error => {
       console.error("Error adding new comment:", error);
     });
 }
+
 
 //<-- Renders Comments To Site -->
 const renderComments = comments => {
