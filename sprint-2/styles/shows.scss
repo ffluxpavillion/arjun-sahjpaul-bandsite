@@ -11,10 +11,26 @@ main {
 	font-family: 'Avenir Next', Tahoma, sans-serif;
 }
 
+.main {
+	padding-bottom: 1rem;
+}
+
 #page2 .link2 {
-	border-bottom: 6px solid $light-text;
 	color: $light-text;
 	font-weight: 600;
+
+	@media screen and (max-width: 767px) {
+		border-bottom: 2px solid;
+		margin-bottom: 4px;
+	}
+	@media screen and (min-width: $tablet) and (max-width: 1279px) {
+		text-decoration: underline white 0.15rem;
+		text-underline-offset: 1.5rem;
+	}
+	@media screen and (min-width: $desktop) {
+		border-bottom: 4px solid;
+		padding-bottom: 1.28rem;
+	}
 }
 
 .header {
@@ -26,15 +42,15 @@ main {
 
 	@media screen and (min-width: $tablet) {
 		flex-direction: row;
-		padding: 2rem 2rem 0 2rem;
+		padding: 1rem 1rem 0rem 2rem;
 	}
 
 	@media screen and (min-width: $desktop) {
-		padding-left: 8rem;
+		padding: 1rem 1rem 1rem 8rem;
 	}
 
 	&__logo {
-		max-width: 7.5rem;
+		min-width: 7.5rem;
 
 		@media screen and (min-width: $tablet) {
 			margin-right: 3rem;
@@ -96,16 +112,10 @@ main {
 		justify-content: center;
 		padding: 0 0rem 0 1rem;
 	}
-	@media screen and (min-width: $tablet) {
+	@media screen and (min-width: $tablet) and (max-width: 1279px) {
 		flex-direction: column;
 		min-height: 30rem;
 		padding: 0 0rem 0 1rem;
-	}
-	@media screen and (min-width: 1024px) {
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		padding: 0 7rem 0 2rem;
 	}
 
 	@media screen and (min-width: $desktop) {
@@ -113,34 +123,34 @@ main {
 		align-items: center;
 		column-gap: 3rem;
 		justify-content: space-between;
-		padding: 0 7rem 0 7rem;
+		padding: 0 7rem 0 5rem;
+		height: 50vw;
+		max-height: 40rem;
 	}
 
 	&__subheader {
-		font-family: "Avenir Next";
+		font-family: 'Avenir Next';
 		color: $light-text;
 		margin: 0rem 0rem 1.5rem 1rem;
 
 		@media screen and (min-width: $mobile) {
 			font-size: 1rem;
 			flex-wrap: wrap;
+			letter-spacing: 0.5px;
 		}
-		@media screen and (min-width: $tablet) {
+		@media screen and (min-width: $tablet) and (max-width: 1279px) {
 			font-size: 1.2rem;
 			flex-wrap: wrap;
 		}
-		@media screen and (min-width: 1024px) {
-			font-size: 1.3rem;
-		}
-
 		@media screen and (min-width: $desktop) {
 			font-size: 1.5rem;
 			flex-wrap: wrap;
+			padding-left: 1.5rem;
 		}
 	}
 
 	&__header {
-		font-family: "Avenir Next";
+		font-family: 'Avenir Next';
 		color: $light-text;
 		margin: 0rem 0rem 1.5rem 1rem;
 		width: 300px;
@@ -149,21 +159,21 @@ main {
 			font-size: 2rem;
 			flex-wrap: wrap;
 			width: 300px;
+			font-weight: 700;
+			letter-spacing: 1px;
 		}
-		@media screen and (min-width: $tablet) {
+		@media screen and (min-width: $tablet) and (max-width: 1279px) {
 			font-size: 2.9rem;
 			flex-wrap: wrap;
 			width: 420px;
 			letter-spacing: 0.14rem;
 		}
-		@media screen and (min-width: 1024px) {
-			font-size: 2.5rem;
-			width: 350px;
-			letter-spacing: 0.14rem;
-		}
 		@media screen and (min-width: $desktop) {
-			font-size: 2.5rem;
+			font-size: 3rem;
 			letter-spacing: 0.14rem;
+			width: 400px;
+			font-weight: 800;
+			padding: 0 1.5rem 1.5rem;
 		}
 	}
 
@@ -197,17 +207,252 @@ main {
 	}
 }
 
-.footer {
-	background-color: $dark-text;
-	padding: 0.5rem 1rem;
+/* Style for the table container */
+.shows__section {
+	color: $dark-text;
+	margin: 1rem 0;
 
 	@media screen and (min-width: $tablet) {
-		padding: 2rem 2.25rem;
+		margin: 3rem 0 2rem 0;
+	}
+
+	@media screen and (min-width: $desktop) {
+		display: flex;
+	}
+}
+
+.shows {
+	font-size: 7vw;
+	font-weight: 700;
+	margin: 1rem;
+
+	@media screen and (min-width: $mobile) {
+		font-size: 1.85rem;
+		margin-bottom: 1rem;
+		padding: 1.5rem 0 0 1rem;
+	}
+
+	@media screen and (min-width: $tablet) {
+		font-size: 2.25rem;
+		padding: 1rem 0 2rem 1rem;
+	}
+
+	@media screen and (min-width: $desktop) {
+		margin: 0 8rem;
+	}
+
+	&__wrapper {
+		margin: 0 1rem;
+		display: flex;
+		flex-direction: column;
+
+		@media screen and (min-width: $desktop) {
+			flex-grow: 1;
+			margin-right: 6rem;
+		}
+	}
+
+	&__header-container {
+		display: flex;
+
+		@media screen and (min-width: $tablet) {
+			display: flex;
+		}
+
+		@media screen and (min-width: $desktop) {
+			justify-content: space-between;
+			padding: 2.5rem 20rem 2.5rem 0;
+		}
+	}
+
+	&__header {
+		color: $secondary-text;
+		font-size: 0.75rem;
+		margin: 0;
+		flex: 0.3;
+		font-weight: bold;
+		display: flex;
+
+		@media screen and (min-width: $desktop) {
+			font-size: 1.1rem;
+			align-content: center;
+		}
+
+		@media screen and (min-width: $tablet) {
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
+		&--media {
+			@media screen and (min-width: $tablet) and (max-width: 1279px) {
+				display: flex;
+				justify-content: flex-start;
+				margin-left: 1rem;
+				margin-right: 4rem;
+				flex-grow: 0.2;
+			}
+			@media screen and (max-width: 767px) {
+				display: none;
+			}
+		}
+	}
+
+	&__card {
+		padding: 1rem;
+		border-bottom: 1px solid $border-color;
+
+		@media screen and (min-width: $tablet) {
+			justify-content: space-between;
+			display: inline-flex;
+			align-items: baseline;
+		}
+
+		/* Style for the selected row */
+		&.selected {
+			background-color: #f1f1f1;
+		}
+
+		/* Style for the hovered row */
+		&.hovered {
+			background-color: #e2e2e2;
+		}
+	}
+
+	&__date {
+		color: $secondary-text;
+		font-weight: 700;
+		padding: 0.5rem 0 0.5rem 0;
+
+		@media screen and (min-width: $mobile) {
+			font-size: 0.85rem;
+		}
+		@media screen and (min-width: $tablet) {
+			display: none;
+		}
+		@media screen and (min-width: $desktop) {
+			display: none;
+		}
+	}
+
+	&__date-text {
+		font-weight: 700;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		@media screen and (min-width: $mobile) {
+			padding-bottom: 0.5rem;
+			padding-top: 0px;
+		}
+	}
+
+	&__venue {
+		color: $secondary-text;
+		font-weight: 700;
+		padding: 0.5rem 0 0.5rem 0;
+
+		@media screen and (min-width: $tablet) {
+			display: none;
+		}
+		@media screen and (min-width: $desktop) {
+			display: none;
+		}
+	}
+
+	&__venue-text {
+		@media screen and (min-width: $mobile) {
+			font-weight: 600;
+			padding-bottom: 0.5rem;
+		}
+		@media screen and (min-width: $tablet) {
+			font-size: 90%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			width: fit-content;
+		}
+	}
+
+	&__location {
+		color: $secondary-text;
+		font-weight: 700;
+		display: flex;
+		padding: 0.5rem 0 0.5rem 0;
+
+		@media screen and (min-width: $tablet) {
+			display: none;
+		}
+		@media screen and (min-width: $desktop) {
+			display: none;
+		}
+	}
+
+	&__location-text {
+		@media screen and (min-width: $mobile) {
+			font-weight: 600;
+			padding: 0.5rem 0 1.7rem 0;
+		}
+		@media screen and (min-width: $tablet) {
+			font-size: 90%;
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: row;
+			justify-content: space-evenly;
+			width: 150px;
+			place-content: stretch;
+			width: fit-content;
+		}
+	}
+
+	&__button-cell {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@media screen and (min-width: $tablet) {
+			margin-top: 1rem;
+		}
+	}
+
+	/* Style for the "Buy Tickets" button */
+	&__button {
+		width: 100%;
+		height: 2.75rem;
+		background-color: $dark-background-color;
+		color: $light-text;
+		font-size: 1rem;
+		border-radius: 4px;
+
+		@media screen and (min-width: 767px) {
+			font-size: 1.2rem;
+			height: 50px;
+			width: 100%;
+			font-weight: 600;
+		}
+		@media screen and (min-width: $tablet) {
+			width: auto;
+			min-width: fit-content;
+			padding: 0 2rem;
+		}
+
+		@media screen and (min-width: $desktop) {
+		}
+	}
+}
+
+.footer {
+	background-color: $dark-text;
+
+	@media screen and (min-width: $mobile) {
+		padding: 0.5rem 1rem;
+	}
+	@media screen and (min-width: $tablet) {
+		padding: 2rem 0rem 2rem 1rem;
 		position: relative;
 	}
 
 	@media screen and (min-width: $desktop) {
-		padding: 2rem 8rem;
+		padding: 3rem 4rem 3rem 4rem;
 	}
 
 	&__social,
@@ -215,21 +460,51 @@ main {
 		color: $light-text;
 		font-size: 1.6rem;
 		font-weight: 600;
-		margin-bottom: 0.75rem;
-		display: flex;
+
+		@media screen and (min-width: $mobile) {
+			margin-bottom: 0.75rem;
+		}
 
 		@media screen and (min-width: $tablet) {
 			font-size: 2.25rem;
-			margin-top: 0.5rem;
+			display: inline-flex;
+			align-items: baseline;
+			margin-bottom: 0rem;
+		}
+
+		@media screen and (min-width: $desktop) {
+			margin-bottom: 0.75rem;
+		}
+	}
+	#footerHeader {
+		@media screen and (min-width: $tablet) {
+			margin: 1rem 0 0 0;
+			padding: 0 0.5rem 0 1rem;
+			display: inline-flex;
+		}
+		@media screen and (min-width: $desktop) {
+			margin: 1rem 0 0 0;
+			padding: 0 2.5rem 0 1.5rem;
+			display: inline-flex;
+		}
+	}
+	&__social-icon {
+		@media screen and (min-width: $mobile) {
+			width: 2.4rem;
+			height: 1.6rem;
+			padding: 0 1rem 0 0;
+		}
+		@media screen and (min-width: $tablet) {
+			width: 2.2rem;
+			height: 1.5rem;
+			padding: 0 0rem 0 1rem;
+		}
+		@media screen and (min-width: $desktop) {
 		}
 	}
 
-	&__social-icon {
-		padding-left: 40px;
-	}
-
 	&__contact {
-		margin: 1.5rem 0 3rem 0;
+		margin: 1.5rem 0 0rem 0;
 		color: $light-text;
 		display: flex;
 		flex-direction: row;
@@ -241,6 +516,8 @@ main {
 			flex-direction: row;
 			justify-content: space-between;
 			font-size: 0.9rem;
+			display: inline-flex;
+			padding: 0.3rem;
 		}
 
 		@media screen and (min-width: $desktop) {
@@ -253,6 +530,11 @@ main {
 		flex-direction: column;
 		align-items: baseline;
 		padding-right: 2rem;
+
+		@media screen and (min-width: $tablet) {
+			display: flex;
+			padding: 1rem;
+		}
 	}
 
 	&__contact-name {
@@ -286,6 +568,7 @@ main {
 			position: absolute;
 			top: 3.75rem;
 			right: 2.25rem;
+			padding: 0 0 0 0;
 		}
 
 		@media screen and (min-width: $desktop) {
@@ -297,190 +580,13 @@ main {
 		font-size: 0.7rem;
 		color: $light-text;
 
+		@media screen and (min-width: $mobile) {
+		}
 		@media screen and (min-width: $tablet) {
 			font-size: 0.9rem;
+			padding-left: 1.2rem;
+		}
+		@media screen and (min-width: $desktop) {
 		}
 	}
-}
-
-/* Style for the table container */
-.shows__wrapper {
-	display: flex;
-	flex-direction: column;
-}
-
-.shows__section {
-	padding: 0 1rem 0 1rem;
-}
-
-.shows {
-	&__header {
-		font-style: Avenir Next Bold;
-	}
-	&__date {
-		color: $secondary-text;
-	}
-
-	&__date-text {
-		font-weight: bold;
-
-		@media screen and (min-width: $tablet) {
-			font-size: 80%;
-		}
-	}
-
-	&__venue {
-		color: $secondary-text;
-	}
-
-	&__venue-text {
-		@media screen and (min-width: $tablet) {
-			font-size: 90%;
-		}
-	}
-
-	&__location {
-		color: $secondary-text;
-	}
-
-	&__location-text {
-		@media screen and (min-width: $tablet) {
-			font-size: 90%;
-		}
-	}
-}
-
-.shows-card tr:after {
-	@media screen and (max-width: 767px) {
-		content: '';
-		// width: 100rem;
-		margin-top: 4rem;
-		display: block;
-		// width: 100%;
-		height: 1px;
-		background-color: lightgrey;
-	}
-	@media screen and (min-width: $tablet) {
-		content: '';
-		// width: 100rem;
-		margin-top: 1rem;
-		display: block;
-		height: 1px;
-		background-color: lightgrey;
-	}
-	@media screen and (min-width: $desktop) {
-		content: '';
-		// width: 100rem;
-		margin-top: 1rem;
-		display: block;
-		height: 1px;
-		background-color: lightgrey;
-	}
-}
-
-/* Style for the table */
-shows-card {
-	width: 100%;
-}
-
-/* Style for table header */
-th {
-	background-color: #f1f1f1;
-	padding: 8px;
-	text-align: left;
-
-	@media screen and (min-width: 767px) {
-		display: inline;
-	}
-}
-
-/* Style for table rows */
-tr {
-	@media screen and (max-width: 767px) {
-		display: flex;
-		flex-direction: column;
-		margin-bottom: 3rem;
-	}
-}
-
-/* Style for table cells */
-td {
-	padding-right: 1rem;
-	text-align: left;
-
-	@media screen and (min-width: $tablet) {
-		padding-right: 1.7rem;
-	}
-	@media screen and (min-width: 1024px) {
-		padding-right: 4rem;
-	}
-
-	@media screen and (min-width: $desktop) {
-		padding-right: 6rem;
-	}
-}
-
-.shows-button-cell {
-	@media screen and (min-width: $mobile) {
-		padding-top: 30px;
-	}
-	@media screen and (min-width: $tablet) {
-	}
-	@media screen and (min-width: 1024px) {
-	}
-
-	@media screen and (min-width: $desktop) {
-	}
-}
-.shows-button {
-	border-radius: 0.25rem;
-
-	@media screen and (min-width: $mobile) {
-		padding-bottom: 10px;
-		padding-top: 5px;
-	}
-
-	@media screen and (min-width: $tablet) {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-	}
-	@media screen and (min-width: 1024px) {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-	}
-
-	@media screen and (min-width: $desktop) {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-	}
-}
-
-/* Style for the "Buy Tickets" button */
-button {
-	background-color: $dark-background-color;
-	color: white;
-	padding: 5px 10px;
-	border: none;
-	cursor: pointer;
-
-	@media screen and (max-width: 767px) {
-		font-size: 2rem;
-		height: 50px;
-		width: 100%;
-	}
-	@media screen and (min-width: 1024px) {
-	}
-
-	@media screen and (min-width: $desktop) {
-	}
-}
-
-/* Style for the selected row */
-.shows__card.selected {
-	background-color: #f1f1f1;
-}
-
-/* Style for the hovered row */
-.shows__card.hovered {
-	background-color: #e2e2e2;
 }

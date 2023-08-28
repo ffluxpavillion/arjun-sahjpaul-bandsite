@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/shows.css">
-  <title>BandSite - Sprint 1</title>
+  <title>BandSite - Sprint 3</title>
 </head>
 <body id="page2">
   <!-- Header Section -->
@@ -16,7 +16,7 @@
       <a href="../pages/shows.html" class="header__link-item link2"><p class="header__link-text">Shows</p></a>
     </div>
   </header>
-  <main>
+  <main class="main">
     <!-- Hero Section + SoundCloud -->
     <section class="hero">
         <div class="hero__div">
@@ -52,14 +52,20 @@
     <!-- Shows Section -->
     <section class="shows__section">
       <h1 class="shows">Shows</h1>
-      <div class="shows__wrapper"></div>
+      <div class="shows__wrapper">
+        <div class="shows__header-container">
+          <p class="shows__header shows__header--media">DATE</p>
+          <p class="shows__header shows__header--media">VENUE</p>
+          <p class="shows__header shows__header--media">LOCATION</p>
+        </div>
+      </div>
     </section>   
   </main>
   <!-- Footer Section -->
   <footer class="footer">
     <section class="footer__social">
       <div class="footer__social-header">
-        <h3>Get in Touch</h3>
+        <h3 id="footerHeader">Get in Touch</h3>
         <img class="footer__social-icon" src="../assets/Icons/SVG/Icon-instagram.svg" alt="instagram">
         <img class="footer__social-icon" src="../assets/Icons/SVG/Icon-facebook.svg" alt="facebook">
         <img class="footer__social-icon" src="../assets/Icons/SVG/Icon-twitter.svg" alt="twitter">

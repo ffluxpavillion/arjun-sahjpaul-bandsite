@@ -12,29 +12,41 @@ main {
 }
 
 #page1 .link1 {
-	border-bottom: 6px solid $light-text;
 	color: $light-text;
 	font-weight: 600;
+
+	@media screen and (max-width: 767px) {
+		border-bottom: 2px solid;
+		margin-bottom: 4px;
+	}
+	@media screen and (min-width: $tablet) and (max-width: 1279px) {
+		text-decoration: underline white 0.15rem;
+		text-underline-offset: 1.5rem;
+	}
+	@media screen and (min-width: $desktop) {
+		border-bottom: 4px solid;
+		padding-bottom: 1.28rem;
+	}
 }
 
 .header {
 	background-color: $dark-text;
-	display: flex;
+	display: flex	;
 	flex-direction: column;
 	align-items: center;
 	padding-top: 1rem;
 
 	@media screen and (min-width: $tablet) {
 		flex-direction: row;
-		padding: 2rem 2rem 0 2rem;
+		padding: 1rem 1rem 0rem 2rem;
 	}
 
 	@media screen and (min-width: $desktop) {
-		padding-left: 8rem;
+		padding: 1rem 1rem 1rem 8rem;
 	}
 
 	&__logo {
-		max-width: 7.5rem;
+		min-width: 7.5rem;
 
 		@media screen and (min-width: $tablet) {
 			margin-right: 3rem;

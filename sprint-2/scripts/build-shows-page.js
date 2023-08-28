@@ -46,34 +46,34 @@ const renderShows = (shows) => {
 
 		//<--  Creates Elements & Inplements Array Data, Then Appends to Post  -->
 		//<--  Display Date Header + Value  -->
-		let dateHeader = document.createElement('p');
+		let dateHeader = document.createElement('div');
 		dateHeader.classList.add('shows__date');
 		dateHeader.textContent = 'DATE';
 		post.appendChild(dateHeader);
 
-		let dateText = document.createElement('p');
+		let dateText = document.createElement('div');
 		dateText.classList.add('shows__date-text');
-		dateText.textContent = formattedDate(show.date); // Use the formattedDate function
+		dateText.textContent = formattedDate(show.date);
 		post.appendChild(dateText);
 
 		//<--  Display Venue Header + Value  -->
-		let venueHeader = document.createElement('p');
+		let venueHeader = document.createElement('div');
 		venueHeader.classList.add('shows__venue');
 		venueHeader.textContent = 'VENUE';
 		post.appendChild(venueHeader);
 
-		let venueText = document.createElement('p');
+		let venueText = document.createElement('div');
 		venueText.classList.add('shows__venue-text');
 		venueText.textContent = show.place;
 		post.appendChild(venueText);
 
 		//<--  Display Location Header + Value  -->
-		let locationHeader = document.createElement('p');
+		let locationHeader = document.createElement('div');
 		locationHeader.classList.add('shows__location');
 		locationHeader.textContent = 'LOCATION';
 		post.appendChild(locationHeader);
 
-		let locationText = document.createElement('p');
+		let locationText = document.createElement('div');
 		locationText.classList.add('shows__location-text');
 		locationText.textContent = show.location;
 		post.appendChild(locationText);

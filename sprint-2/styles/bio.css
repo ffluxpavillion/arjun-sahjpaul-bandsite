@@ -25,9 +25,27 @@ main {
 }
 
 #page1 .link1 {
-  border-bottom: 6px solid #fff;
   color: #fff;
   font-weight: 600;
+}
+@media screen and (max-width: 767px) {
+  #page1 .link1 {
+    border-bottom: 2px solid;
+    margin-bottom: 4px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  #page1 .link1 {
+    -webkit-text-decoration: underline white 0.15rem;
+            text-decoration: underline white 0.15rem;
+    text-underline-offset: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #page1 .link1 {
+    border-bottom: 4px solid;
+    padding-bottom: 1.28rem;
+  }
 }
 
 .header {
@@ -40,16 +58,16 @@ main {
 @media screen and (min-width: 768px) {
   .header {
     flex-direction: row;
-    padding: 2rem 2rem 0 2rem;
+    padding: 1rem 1rem 0rem 2rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .header {
-    padding-left: 8rem;
+    padding: 1rem 1rem 1rem 8rem;
   }
 }
 .header__logo {
-  max-width: 7.5rem;
+  min-width: 7.5rem;
 }
 @media screen and (min-width: 768px) {
   .header__logo {
